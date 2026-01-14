@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id="QS" class="fr.uvsq.spring.project.entity.QuestionSport"/>
+	
+	<bean id="QJ" class="fr.uvsq.spring.project.entity.QuestionJava"/>
+	<bean id="QY" class="fr.uvsq.spring.project.entity.QuestionYoga"/>
+	
+	<bean id="ServQ" class="fr.uvsq.spring.project.service.FournisseurDeQuestions">
+		<property name="lesQuestions" ref="QY"/>
+	</bean>
+	
+	
+	<bean id="EN" class="fr.uvsq.spring.project.service.Anglais"/>
+	<bean id="FR" class="fr.uvsq.spring.project.service.Francais"/>
+	<bean id="WD" class="fr.uvsq.spring.project.service.Windows"/>
+	<bean id="UN" class="fr.uvsq.spring.project.service.Unix"/>
+	<bean id="choixEnvironnemnt" class="fr.uvsq.spring.project.service.Configure">
+		<property name="maLangue" ref="FR"/>
+		<property name="monSysteme" ref="WD"/>
+	</bean>
+	
+	
+</beans>

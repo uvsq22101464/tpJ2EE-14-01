@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<bean id="DR" class="fr.uvsq.spring.magasin.project.entity.Drone"/>
+	<bean id="CL" class="fr.uvsq.spring.magasin.project.entity.Classique">
+		<property name="delai" value="3"/>
+	</bean>
+
+	
+	<bean id="RT" class="fr.uvsq.spring.magasin.project.entity.OptionRetour"/>
+	<bean id="PR" class="fr.uvsq.spring.magasin.project.entity.OptionPrime"/>
+	
+	<bean id="ServLivr" class="fr.uvsq.spring.magasin.project.service.ServiceLivraison">
+		<constructor-arg value="Magasin super"/>
+		<constructor-arg ref="CL"/>
+		<property name="listOptions">
+			<list>
+				<ref bean="RT"/>
+				<ref bean="PR"/>
+			</list>
+		
+		</property>
+	</bean>	
+
+	
+</beans>
